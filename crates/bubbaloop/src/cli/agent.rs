@@ -8,7 +8,15 @@ pub struct AgentCommand {
     #[argh(option, short = 'm')]
     pub model: Option<String>,
 
+    /// llm provider to use: 'claude' or 'ollama' (default: claude)
+    #[argh(option, short = 'p')]
+    pub provider: Option<String>,
+
     /// zenoh endpoint to connect to (default: auto-discover)
     #[argh(option, short = 'z')]
     pub zenoh_endpoint: Option<String>,
+
+    /// agent name for routing messages to this agent's inbox (default: "default")
+    #[argh(option, short = 'n')]
+    pub name: Option<String>,
 }
